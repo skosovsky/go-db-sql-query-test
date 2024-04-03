@@ -91,7 +91,7 @@ func Test_InsertClient_ThenSelectAndCheck(t *testing.T) {
 	clientDataVerification, err := db.selectClient(client.ID)
 	require.NoError(t, err)
 
-	assert.EqualValues(t, client, clientDataVerification)
+	assert.EqualValues(t, clientDataVerification, client)
 
 	err = db.deleteClient(client.ID)
 	require.NoError(t, err)
@@ -137,7 +137,7 @@ func Test_InsertClient_ThenUpdateAndSelectAndCheck(t *testing.T) {
 	clientDataVerification, err := db.selectClient(client.ID)
 	require.NoError(t, err)
 
-	assert.EqualValues(t, clientDataUpdate, clientDataVerification)
+	assert.EqualValues(t, clientDataVerification, clientDataUpdate)
 
 	err = db.deleteClient(client.ID)
 	require.NoError(t, err)
